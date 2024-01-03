@@ -31,10 +31,21 @@ let showAbilities = function (data) {
   const abilityArray = data.abilities;
   for (let abilityIndex of abilityArray) {
     const abilityName = abilityIndex.ability.name;
-    //const abilityDescription = getAbilityDescription(abilityName);
-    const $abilityh3 = $(`<h5>${abilityName}: {abilityDescription placeholder}</h5>`);
+    const abilityDescription = getAbilityDescription(abilityName);
+    console.log(abilityDescription);
+    const $abilityh3 = $(`<h5>${abilityName}: ${abilityDescription}</h5>`);
     $(".abilities-container").append($abilityh3);
   }
+}
+
+let getAbilityDescription = function (abilityName) {
+  let abilityUrl = 'https://pokeapi.co/api/v2/ability/' + abilityName;
+  let abilityDescription = $.get(abilityUrl, (abilityData) => {
+    abilityDescription = abilityData.effect_entries[1].effect;
+    return abilityDescription;
+  })
+  console.log(abilityDescription);
+  return abilityDescription;
 }
 
 //take user input, get data from api based on input, returns data for future use
@@ -43,10 +54,10 @@ $('#searchButton').on('click', (event) => {
   $('img').remove();//clear previous img
   $('h3').remove();//clear previous name header
   const userSearch = $('#userSearchID').val();
-  console.log(`userSearch: ${userSearch}`);
+  //console.log(`userSearch: ${userSearch}`);
   let searchUrl = 'https://pokeapi.co/api/v2/pokemon/' + userSearch;
   $.get(searchUrl, (data) => {
-    console.log(data);
+    //console.log(data);
     showName(data);
     showSprite(data);
     showStats(data);
