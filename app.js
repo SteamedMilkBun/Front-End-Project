@@ -28,11 +28,12 @@ let showStats = function (data) {
 
 let showAbilities = function (data) {
   $(".abilities-container").text("Abilities");
+  const abilityArray = data.abilities;
   for (let abilityIndex of abilityArray) {
     const abilityName = abilityIndex.ability.name;
     //const abilityDescription = getAbilityDescription(abilityName);
-    const $stath3 = $(`<h5>${abilityName}: {abilityDescription placeholder}</h5>`);
-    $(".abilities-container").append($stath3);
+    const $abilityh3 = $(`<h5>${abilityName}: {abilityDescription placeholder}</h5>`);
+    $(".abilities-container").append($abilityh3);
   }
 }
 
@@ -49,6 +50,7 @@ $('#searchButton').on('click', (event) => {
     showName(data);
     showSprite(data);
     showStats(data);
+    showAbilities(data);
   })
 })
 
