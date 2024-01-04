@@ -6,13 +6,14 @@ let showSprite = function (data) {
   //const $spriteDiv = $(<div id="spriteDiv"></div>)
   const $sprite = $(`<img src=${spriteUrl}>`);
   $(".image-holder").append($sprite);
+  $(".display-sprite").append($(".image-holder"));
 }
 
 let showName = function (data) {
   const spriteName = data.name;
-  const $nameHeader = $(`<h3 id="name"></h3>`);
+  const $nameHeader = $(`<h3 id="name"> </h3>`);
   $nameHeader.text(spriteName.toUpperCase())
-    .css("textAlign", "center")
+    //.css("textAlign", "right")
   $(".display-sprite").append($nameHeader);
 }
 
