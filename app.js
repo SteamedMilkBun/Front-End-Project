@@ -1,4 +1,4 @@
-//display sprite
+
 let showSprite = function (data) {
   //find sprite in data object
   //url for sprite = data.sprites.front_default
@@ -11,53 +11,44 @@ let showSprite = function (data) {
 let showName = function (data) {
   const spriteName = data.name;
   const $nameHeader = $(`<h3 id="name"></h3>`);
-  $nameHeader.text(spriteName).css("textAlign", "center");
+  $nameHeader.text(spriteName.toUpperCase())
+    .css("textAlign", "center")
   $(".display-sprite").append($nameHeader);
 }
 
 let showStats = function (data) {
-  $(".stats-container").text("Stats");
+  $(".stats-container").html('<p style="font-size: large">STATS</p>');
   const statsArray = data.stats;
   for (let statsIndex of statsArray) {
     const statName = statsIndex.stat.name;
     const statValue = statsIndex.base_stat;
-    const $stath3 = $(`<h5>${statName}: ${statValue}</h5>`);
-    $(".stats-container").append($stath3);
+    const $statp = $(`<p>${statName.toUpperCase()}: ${statValue}</p>`)
+    $(".stats-container").append($statp);
   }
 }
 
 let showAbilities = function (data) {
-  $(".abilities-container").text("Abilities");
+  $(".abilities-container").html('<p style="font-size: large">ABILITIES</p>');
   const abilityArray = data.abilities;
   for (let abilityIndex of abilityArray) {
-    const abilityName = abilityIndex.ability.name;
-    const abilityDescription = getAbilityDescription(abilityName);
-    console.log(abilityDescription);
-    const $abilityh3 = $(`<h5>${abilityName}: ${abilityDescription}</h5>`);
-    $(".abilities-container").append($abilityh3);
+    let abilityName = abilityIndex.ability.name;
+    let abilityUrl = 'https://pokeapi.co/api/v2/ability/' + abilityName;
+    $.get(abilityUrl, (abilityData) => {
+      let abilityDescription = abilityData.effect_entries[1].effect;
+      const $abilityp = $(`<p>${abilityName.toUpperCase()}: ${abilityDescription}</p>`);
+      $(".abilities-container").append($abilityp);
+    })
   }
 }
 
-let getAbilityDescription = function (abilityName) {
-  let abilityUrl = 'https://pokeapi.co/api/v2/ability/' + abilityName;
-  let abilityDescription = $.get(abilityUrl, (abilityData) => {
-    abilityDescription = abilityData.effect_entries[1].effect;
-    return abilityDescription;
-  })
-  console.log(abilityDescription);
-  return abilityDescription;
-}
-
 //take user input, get data from api based on input, returns data for future use
-$('#searchButton').on('click', (event) => {
+$('.search-button').on('click', (event) => {
   event.preventDefault();
   $('img').remove();//clear previous img
   $('h3').remove();//clear previous name header
   const userSearch = $('#userSearchID').val();
-  //console.log(`userSearch: ${userSearch}`);
   let searchUrl = 'https://pokeapi.co/api/v2/pokemon/' + userSearch;
   $.get(searchUrl, (data) => {
-    //console.log(data);
     showName(data);
     showSprite(data);
     showStats(data);

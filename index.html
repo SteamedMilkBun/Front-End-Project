@@ -8,17 +8,72 @@
   <script defer src="app.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="searchbar">
-    <input id="userSearchID"
-      type="text" name="search"
-      placeholder="Search a Pokemon">
-    <button type="button" id="searchButton">Search Pokemon</button>
+<body class="body">
+  <div class="search-bar">
+    <input id="userSearchID" type="text" name="search" placeholder="Search a Pokemon">
+    <button type="button" class="search-button"></button>
   </div>
   <div class="display-sprite">
-    <div class="image-holder"></div>
-  </div>
-  <div class="stats-container"></div>
-  <div class="abilities-container"></div>
+    <div class="image-holder"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"></div>
+  <h3 id="name" style="text-align: center;">PIKACHU</h3></div>
+  <div class="stats-container">
+    <p style="font-size: large">STATS</p>
+    <p>HP: 35</p><p>ATTACK: 55</p>
+    <p>DEFENSE: 40</p>
+    <p>SPECIAL-ATTACK: 50</p>
+    <p>SPECIAL-DEFENSE: 50</p>
+    <p>SPEED: 90</p></div>
+  <div class="abilities-container">
+    <p style="font-size: large">ABILITIES</p>
+    <p>STATIC: Whenever a move makes contact with this Pokémon, the move's user has a 30% chance of being paralyzed.
+
+      Pokémon that are immune to electric-type moves can still be paralyzed by this ability.
+
+      Overworld: If the lead Pokémon has this ability, there is a 50% chance that encounters will be with an electric Pokémon, if applicable.</p>
+    <p>LIGHTNING-ROD: All other Pokémon's single-target electric-type moves are redirected to this Pokémon if it is an eligible target.  Other Pokémon's Electric moves raise this Pokémon's Special Attack one stage, negating any other effect on it, and cannot miss it.
+
+      If the move's intended target also has this ability, the move is not redirected.  When multiple Pokémon with this ability are possible targets for redirection, the move is redirected to the one with the highest Speed stat, or, in the case of a tie, to a random tied Pokémon. Follow me takes precedence over this ability.
+
+      If the Pokémon is a ground-type and thus immune to Electric moves, its immunity prevents the Special Attack boost.</p></div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
 </body>
 </html>
