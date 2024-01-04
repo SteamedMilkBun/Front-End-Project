@@ -46,7 +46,7 @@ let showAbilities = function (data) {
 $('.search-button').on('click', (event) => {
   event.preventDefault();
   $('img').remove();//clear previous img
-  $('h3').remove();//clear previous name header
+  $('h3#name').remove();//clear previous name header
   const userSearch = $('#userSearchID').val();
   let searchUrl = 'https://pokeapi.co/api/v2/pokemon/' + userSearch;
   $.get(searchUrl, (data) => {
