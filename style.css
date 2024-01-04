@@ -1,8 +1,16 @@
+@font-face {
+  font-family: pokemon;
+  src: url(pokefont.ttf);
+}
+
 .body {
+  font-family: pokemon;
   display: block;
   height: auto;
-  width: auto;
-  border-style: solid;
+  width: 800px;
+  border-style: double;
+  border-radius: 5px;
+  margin: auto;
   background-image: url("pokeballBG.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -50,4 +58,14 @@
   display: block;
   height: auto;
   width: 100%;
+}
+
+.p {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.ptitle {
+  font-size: large;
+  margin-left: 2%;
 }

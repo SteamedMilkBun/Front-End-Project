@@ -17,25 +17,25 @@ let showName = function (data) {
 }
 
 let showStats = function (data) {
-  $(".stats-container").html('<p style="font-size: large">STATS</p>');
+  $(".stats-container").html('<p class="ptitle">STATS</p>');
   const statsArray = data.stats;
   for (let statsIndex of statsArray) {
     const statName = statsIndex.stat.name;
     const statValue = statsIndex.base_stat;
-    const $statp = $(`<p>${statName.toUpperCase()}: ${statValue}</p>`)
+    const $statp = $(`<p class="p">${statName.toUpperCase()}: ${statValue}</p>`)
     $(".stats-container").append($statp);
   }
 }
 
 let showAbilities = function (data) {
-  $(".abilities-container").html('<p style="font-size: large">ABILITIES</p>');
+  $(".abilities-container").html('<p class="ptitle">ABILITIES</p>');
   const abilityArray = data.abilities;
   for (let abilityIndex of abilityArray) {
     let abilityName = abilityIndex.ability.name;
     let abilityUrl = 'https://pokeapi.co/api/v2/ability/' + abilityName;
     $.get(abilityUrl, (abilityData) => {
       let abilityDescription = abilityData.effect_entries[1].effect;
-      const $abilityp = $(`<p>${abilityName.toUpperCase()}: ${abilityDescription}</p>`);
+      const $abilityp = $(`<p class="p">${abilityName.toUpperCase()}: ${abilityDescription}</p>`);
       $(".abilities-container").append($abilityp);
     })
   }
