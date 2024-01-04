@@ -24,17 +24,20 @@ div.default-border {
   display: flex;
   justify-content: right;
   margin-top: 20px;
+  margin-right: 40px;
+  position: relative;
 }
 
 #userSearchID{
   height: 30px;
-  width: 280px;
+  width: 260px;
 }
 
 .search-button {
+  position: absolute;
   height: 30px;
   width: 30px;
-  margin-left: 5px;
+  margin-right: 5px;
   margin-top: 3px;
   background-image: url("pokeball.jpg");
   background-repeat: no-repeat;
