@@ -22,17 +22,33 @@ div.default-border {
 
 .search-bar {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  justify-content: right;
+  margin-top: 20px;
+}
+
+#userSearchID{
+  height: 30px;
+  width: 280px;
 }
 
 .search-button {
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
+  margin-left: 5px;
+  margin-top: 3px;
   background-image: url("pokeball.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-style: hidden;
+}
+
+.search-button:hover {
+  height: 30px;
+  width: 30px;
+  margin-left: 5px;
+  margin-top: 3px;
+  background-image: url("openball.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
