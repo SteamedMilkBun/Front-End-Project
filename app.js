@@ -1,10 +1,13 @@
+const pokeballImgURL = "pokeball.jpg";
+const $pokeballImg = $('<img />');
+$pokeballImg.attr("src", pokeballImgURL);
 
 let showSprite = function (data) {
   //find sprite in data object
   //url for sprite = data.sprites.front_default
   const spriteUrl = data.sprites.front_default;
   //const $spriteDiv = $(<div id="spriteDiv"></div>)
-  const $sprite = $(`<img src=${spriteUrl}>`);
+  const $sprite = $(`<img src=${spriteUrl} id="sprite">`);
   $(".image-holder").append($sprite);
   $(".display-sprite").append($(".image-holder"));
 }
@@ -18,7 +21,7 @@ let showName = function (data) {
 }
 
 let showStats = function (data) {
-  $(".stats-container").html('<p class="ptitle">STATS</p>');
+  $(".stats-container").append('<p class="ptitle">STATS</p>');
   const statsArray = data.stats;
   for (let statsIndex of statsArray) {
     const statName = statsIndex.stat.name;
@@ -29,7 +32,7 @@ let showStats = function (data) {
 }
 
 let showAbilities = function (data) {
-  $(".abilities-container").html('<p class="ptitle">ABILITIES</p>');
+  $(".abilities-container").append('<p class="ptitle">ABILITIES</p>');
   const abilityArray = data.abilities;
   for (let abilityIndex of abilityArray) {
     let abilityName = abilityIndex.ability.name;
@@ -45,8 +48,9 @@ let showAbilities = function (data) {
 //take user input, get data from api based on input, returns data for future use
 $('.search-button').on('click', (event) => {
   event.preventDefault();
-  $('img').remove();//clear previous img
+  $('#sprite').remove();//clear previous sprite img
   $('h3#name').remove();//clear previous name header
+  $('p').remove();//clear all p
   const userSearch = $('#userSearchID').val();
   let searchUrl = 'https://pokeapi.co/api/v2/pokemon/' + userSearch;
   $.get(searchUrl, (data) => {
