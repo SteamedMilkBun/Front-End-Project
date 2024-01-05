@@ -112,14 +112,17 @@ div.default-border {
 
 .stats-container {
   display: block;
+  position: relative;
   height: auto;
   width: 100%;
 }
 
 .abilities-container {
   display: block;
+  position: relative;
   height: auto;
   width: 100%;
+  margin-top: 20px;
 }
 
 .p {
@@ -134,21 +137,29 @@ div.default-border {
 
 #ULball {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: -12px;
+	left: -12px;
+  height: 20px;
+  width: 20px;
 }
 #URball {
 	position: absolute;
-	top: 0;
-	right: 0%;
+	top: -12px;
+	right: -12px;
+  height: 20px;
+  width: 20px;
 }
-#LLball {
+#BLball {
 	position: absolute;
-	bottom: 0%;
-	left: 0;
+	bottom: -12px;
+	left: -12px;
+  height: 20px;
+  width: 20px;
 }
-#LRball {
-	bottom: 0%;
-	right: 0%;
+#BRball {
+	bottom: -12px;
+	right: -12px;
 	position: absolute;
+  height: 20px;
+  width: 20px;
 }
