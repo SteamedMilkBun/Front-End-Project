@@ -18,6 +18,12 @@
 
 - [An open pokeball for search button](openball.jpg)
 
+- [Professor oak from the back](oakback.png)
+
+- [Arrow for bottom border hook under name and information, ran out of time to implement](arrow.png)
+
+#### Uses pokefont.ttf from https://www.fontspace.com/pokemon-gb-font-f9621
+
 ### Future features:
 
 - interaction box in lower right corner similar to gameboy interface with 4 options, but
