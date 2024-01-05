@@ -1,7 +1,3 @@
-const pokeballImgURL = "pokeball.jpg";
-const $pokeballImg = $('<img />');
-$pokeballImg.attr("src", pokeballImgURL);
-
 let showSprite = function (data) {
   //find sprite in data object
   //url for sprite = data.sprites.front_default
@@ -45,8 +41,7 @@ let showAbilities = function (data) {
   }
 }
 
-//take user input, get data from api based on input, returns data for future use
-$('.search-button').on('click', (event) => {
+let getData = function (event) {
   event.preventDefault();
   $('#sprite').remove();//clear previous sprite img
   $('h3#name').remove();//clear previous name header
@@ -59,5 +54,15 @@ $('.search-button').on('click', (event) => {
     showStats(data);
     showAbilities(data);
   })
+}
+
+//take user input, get data from api based on input, returns data for future use
+$('.search-button').on('click', (event) => {
+  getData(event);
 })
 
+$('#userSearchID').on('keypress', (event) => {
+  if (event.key === "Enter") {
+    getData(event);
+  }
+})
